@@ -1,0 +1,41 @@
+<div class="header">
+    <h1>Nuevo préstamo</h1>
+    <i class="fa-solid fa-bell notification-icon"></i>
+</div>
+<div class="header-subtitle">Registra un nuevo préstamo de equipo.</div>
+
+<div class="card-box">
+    <div class="card-title">1. Seleccionar equipo</div>
+    <div class="search-input-box">
+        <input type="text" placeholder="Escanea o busca el equipo">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <a class="link-blue-center">Buscar manualmente</a>
+</div>
+
+<div class="card-box">
+    <div class="card-title">2. Empleado que recibe</div>
+    <div class="search-input-box">
+        <input type="text" placeholder="Buscar empleado">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <a class="link-blue-center">Buscar manualmente</a>
+</div>
+
+<div class="card-box">
+    <div class="card-title">3. Fecha de préstamo</div>
+    <div class="search-input-box">
+        <input type="text" placeholder="Seleccionar la fecha" onfocus="(this.type='date')">
+        <i class="fa-solid fa-calendar"></i>
+    </div>
+    <a class="link-blue-center">Buscar manualmente</a>
+</div>
+
+<div class="card-box">
+    <div class="card-title">4. Observaciones (opcional)</div>
+    <textarea class="textarea-box" placeholder="Escribe observaciones..." maxlength="150"
+        oninput="document.getElementById('c1').innerText = this.value.length"></textarea>
+    <div class="char-counter"><span id="c1">0</span>/150</div>
+</div>
+
+<button class="btn-action-navy" onclick="alert('¡Préstamo registrado con éxito!')">Registrar préstamos</button>

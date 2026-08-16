@@ -1,1 +1,0 @@
-# SIPTEC-aplicacion-movil-
