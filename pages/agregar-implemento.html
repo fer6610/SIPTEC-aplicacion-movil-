@@ -1,43 +1,57 @@
 <div class="header">
-    <h1>Agregar implemento</h1>
-    <i class="fa-solid fa-bell notification-icon"></i>
-</div>
-<div class="header-subtitle">Registrar un nuevo implemento o equipo al inventario</div>
+                    <h1>Agregar implemento</h1>
+                    <i class="fa-solid fa-bell notification-icon"></i>
+                </div>
+                <div class="header-subtitle">Registrar un nuevo implemento o equipo al inventario</div>
 
-<div class="card-box">
-    <div class="card-title">1. Información del equipo</div>
-    <div class="search-input-box">
-        <input type="text" placeholder="Escanea el codigo del equipo">
-        <i class="fa-solid fa-magnifying-glass"></i>
-    </div>
-    <a class="link-blue-center">Ingresar manualmente</a>
-</div>
+                <div class="card-box">
+                    <div class="card-title">1. Información del equipo</div>
+                    <div class="search-input-box">
+                        <input type="text" placeholder="Escanea el codigo del equipo">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <a class="link-blue-center">Ingresar manualmente</a>
+                </div>
 
-<div class="card-box">
-    <div class="card-title">2. Nombre del equipo</div>
-    <input type="text" placeholder="Escribe el nombre del equipo" class="plain-input">
-</div>
+                <div class="card-box">
+                    <div class="card-title">2. Nombre del equipo</div>
+                    <input type="text" placeholder="Escribe el nombre del equipo" class="plain-input" required>
+                </div>
 
-<div class="card-box">
-    <div class="card-title">3. Categoria</div>
-    <input type="text" placeholder="Seleccione una categoría" class="plain-input">
-</div>
+                <div class="card-box">
+                    <div class="card-title">3. Código de inventario</div>
+                    <input type="text" placeholder="Ej. TAL-002" class="plain-input" required>
+                </div>
 
-<div class="card-box">
-    <div class="card-title">4. Descripción (opcional)</div>
-    <textarea class="textarea-box" placeholder="Escribe una descripción..." maxlength="150"
-        oninput="document.getElementById('c3').innerText = this.value.length"></textarea>
-    <div class="char-counter"><span id="c3">0</span>/150</div>
-</div>
+                <div class="card-box">
+                    <div class="card-title">4. Marca</div>
+                    <!-- Se llena con GET /api/marca cuando ese endpoint esté implementado -->
+                    <select class="plain-input" required>
+                        <option value="" disabled selected>Selecciona una marca</option>
+                    </select>
+                </div>
 
-<div style="margin-bottom:12px;">
-    <div class="card-title" style="margin-bottom:6px;">5. Foto del equipo(opcional)</div>
-    <div class="photo-upload-box">
-        <i class="fa-solid fa-camera"></i>
-        <span>Tomar foto</span>
-        <small>0/1 fotos</small>
-    </div>
-</div>
+                <div class="card-box">
+                    <div class="card-title">5. Categoría</div>
+                    <!-- Se llena con GET /api/categoria, que ya está funcionando -->
+                    <select class="plain-input" required>
+                        <option value="" disabled selected>Selecciona una categoría</option>
+                    </select>
+                </div>
 
-<button class="btn-action-purple" onclick="alert('¡Implemento guardado exitosamente!'); loadView('dashboard');">Guardar
-    implemento</button>
+                <div class="card-box">
+                    <div class="card-title">6. Descripción (opcional)</div>
+                    <textarea class="textarea-box" placeholder="Escribe una descripción..." maxlength="150" oninput="document.getElementById('c3').innerText = this.value.length"></textarea>
+                    <div class="char-counter"><span id="c3">0</span>/150</div>
+                </div>
+
+                <div style="margin-bottom:12px;">
+                    <div class="card-title" style="margin-bottom:6px;">7. Foto del equipo (opcional)</div>
+                    <div class="photo-upload-box">
+                        <i class="fa-solid fa-camera"></i>
+                        <span>Tomar foto</span>
+                        <small>0/1 fotos</small>
+                    </div>
+                </div>
+
+                <button class="btn-action-purple" onclick="alert('¡Implemento guardado exitosamente!'); loadView('dashboard');">Guardar implemento</button>

@@ -6,7 +6,7 @@
 
                 <div class="card-box">
                     <div class="card-title">Resumen rápido</div>
-                    <div class="grid-4">
+                    <div class="grid-2">
                         <div class="stat-card bg-blue">
                             <i class="fa-solid fa-cube"></i>
                             <span class="number">8</span>
@@ -23,19 +23,37 @@
                             <span class="label">Equipos con daño</span>
                         </div>
                         <div class="stat-card bg-purple">
-                            <i class="fa-solid fa-book"></i>
+                            <i class="fa-solid fa-circle-check"></i>
                             <span class="number">12</span>
                             <span class="label">Equipos disponibles</span>
                         </div>
                     </div>
                 </div>
 
+                <div class="card-box">
+                    <div class="card-title">Accesos rápidos</div>
+                    <div class="grid-4">
+                        <button class="action-card text-blue" onclick="loadView('prestamos')">
+                            <i class="fa-solid fa-circle-plus"></i>
+                            Nuevo préstamo
+                        </button>
+                        <button class="action-card text-green" onclick="loadView('devolucion')">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            Registrar devolución
+                        </button>
+                        <button class="action-card text-purple" onclick="loadView('agregar-implemento')">
+                            <i class="fa-solid fa-box"></i>
+                            Agregar implemento
+                        </button>
+                        <button class="action-card text-orange" onclick="loadView('devolucion', 'estadoDanado')">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            Reportar daño
+                        </button>
+                    </div>
+                </div>
                 
                 <div class="card-box">
-                    <div class="card-header-flex">
-                        <span class="card-title" style="margin-bottom:0;">Préstamos activos</span>
-                        <a class="link-blue">Ver todos</a>
-                    </div>
+                    <div class="card-title">Préstamos activos</div>
 
                     <div class="item-row">
                         <i class="fa-solid fa-toolbox item-icon"></i>
@@ -53,7 +71,7 @@
                         <i class="fa-solid fa-desktop item-icon"></i>
                         <div class="item-info">
                             <div class="item-title">Cable HDMI</div>
-                            <div class="item-subtitle">TAL-001</div>
+                            <div class="item-subtitle">CABLE-002</div>
                         </div>
                         <div class="item-due">
                             Devolver antes de
@@ -73,36 +91,9 @@
                         </div>
                     </div>
                 </div>
-
-               
-                <div class="card-box">
-                    <div class="card-title">Accesos rápidos</div>
-                    <div class="grid-4">
-                        <button class="action-card text-blue" onclick="loadView('prestamos')">
-                            <i class="fa-solid fa-circle-plus"></i>
-                            Nuevo préstamo
-                        </button>
-                        <button class="action-card text-green" onclick="loadView('devolucion')">
-                            <i class="fa-solid fa-rotate-left"></i>
-                            Registrar devolución
-                        </button>
-                        <button class="action-card text-purple" onclick="loadView('agregar-implemento')">
-                            <i class="fa-solid fa-box"></i>
-                            Agregar implemento
-                        </button>
-                        <button class="action-card text-orange" onclick="loadView('devolucion')">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            Reportar daño
-                        </button>
-                    </div>
-                </div>
-
              
                 <div class="card-box">
-                    <div class="card-header-flex">
-                        <span class="card-title" style="margin-bottom:0;">Actividad reciente</span>
-                        <a class="link-blue">Ver historial</a>
-                    </div>
+                    <div class="card-title">Actividad reciente</div>
 
                     <div class="activity-row">
                         <div class="activity-badge bg-green">
@@ -119,7 +110,7 @@
                             <i class="fa-solid fa-triangle-exclamation"></i>
                         </div>
                         <div>
-                            <div class="activity-text">Se reportó daño en "Taladro Cable HDMI"</div>
+                            <div class="activity-text">Se reportó daño en "Cable HDMI"</div>
                             <div class="activity-time">Hace 5 horas</div>
                         </div>
                     </div>

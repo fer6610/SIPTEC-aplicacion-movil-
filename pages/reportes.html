@@ -1,51 +1,55 @@
 <div class="header">
-    <h1>Generar reportes</h1>
-    <i class="fa-solid fa-bell notification-icon"></i>
-</div>
-<div class="header-subtitle">Genera y consulta reportes del sistema.</div>
+                    <h1>Generar reportes</h1>
+                    <i class="fa-solid fa-bell notification-icon"></i>
+                </div>
+                <div class="header-subtitle">Genera y consulta reportes del sistema.</div>
 
-<div style="margin-bottom: 12px;">
-    <div class="card-title" style="margin-bottom:6px;">1. Tipo de reporte</div>
-    <input type="text" placeholder="Seleccióna el tipo de reporte" class="report-type-input">
-</div>
+                <div class="card-title" style="margin-bottom:6px;">1. Tipo de reporte</div>
 
-<div class="report-select-card">
-    <div>
-        <div class="title">Prestamo Activos</div>
-        <div class="desc">Equipos actualmente prestados</div>
-    </div>
-    <i class="fa-solid fa-arrow-right"></i>
-</div>
+                <input type="radio" name="tipoReporte" id="repPrestamosActivos" class="report-type-radio" checked>
+                <label class="report-select-card" for="repPrestamosActivos">
+                    <div>
+                        <div class="title">Préstamos activos</div>
+                        <div class="desc">Equipos actualmente prestados</div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </label>
 
-<div class="report-select-card">
-    <div>
-        <div class="title">Historial de préstamos</div>
-        <div class="desc">Todos los préstamos realizados</div>
-    </div>
-</div>
+                <input type="radio" name="tipoReporte" id="repHistorial" class="report-type-radio">
+                <label class="report-select-card" for="repHistorial">
+                    <div>
+                        <div class="title">Historial de préstamos</div>
+                        <div class="desc">Todos los préstamos realizados</div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </label>
 
-<div class="report-select-card">
-    <div>
-        <div class="title">Devoluciones</div>
-        <div class="desc">Historial de devoluciones</div>
-    </div>
-</div>
+                <input type="radio" name="tipoReporte" id="repDevoluciones" class="report-type-radio">
+                <label class="report-select-card" for="repDevoluciones">
+                    <div>
+                        <div class="title">Devoluciones</div>
+                        <div class="desc">Historial de devoluciones</div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </label>
 
-<div class="report-select-card" style="margin-bottom:14px;">
-    <div>
-        <div class="title">Equipos con daño</div>
-        <div class="desc">Equipos reportados con daño</div>
-    </div>
-</div>
+                <input type="radio" name="tipoReporte" id="repDanados" class="report-type-radio">
+                <label class="report-select-card" for="repDanados" style="margin-bottom:14px;">
+                    <div>
+                        <div class="title">Equipos con daño</div>
+                        <div class="desc">Equipos reportados con daño</div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </label>
 
-<div style="margin-bottom: 14px;">
-    <div class="card-title" style="margin-bottom:6px;">2. Rango de fechas</div>
-    <div class="date-range-flex">
-        <input type="text" placeholder="Fecha de inicio" class="date-input-pill" onfocus="(this.type='date')">
-        <span style="font-size:10px;">a</span>
-        <input type="text" placeholder="Fecha fin" class="date-input-pill" onfocus="(this.type='date')">
-    </div>
-</div>
+                <div style="margin-bottom: 14px;">
+                    <div class="card-title" style="margin-bottom:6px;">2. Rango de fechas</div>
+                    <div class="date-range-flex">
+                        <input type="date" class="date-input-pill" id="reporteFechaInicio" required>
+                        <span style="font-size:10px;">a</span>
+                        <input type="date" class="date-input-pill" id="reporteFechaFin" required>
+                    </div>
+                </div>
 
-<button class="btn-action-slate" onclick="alert('Generando reporte...')">Generar reporte</button>
-<button class="btn-action-outline">Ver reportes generados</button>
+                <button class="btn-action-slate" onclick="alert('Generando reporte...')">Generar reporte</button>
+                <button class="btn-action-outline">Ver reportes generados</button>
