@@ -1,117 +1,117 @@
 <div class="header">
-                    <h1>¡Bienvenido,<br>Empleado!</h1>
-                    <i class="fa-solid fa-bell notification-icon"></i>
-                </div>
-                <div class="header-subtitle">Resumen general del sistema</div>
+    <h1>¡Bienvenido,<br>Empleado!</h1>
+    <i class="fa-solid fa-bell notification-icon"></i>
+</div>
+<div class="header-subtitle">Resumen general del sistema</div>
 
-                <div class="card-box">
-                    <div class="card-title">Resumen rápido</div>
-                    <div class="grid-2">
-                        <div class="stat-card bg-blue">
-                            <i class="fa-solid fa-cube"></i>
-                            <span class="number">8</span>
-                            <span class="label">Equipos prestados</span>
-                        </div>
-                        <div class="stat-card bg-green">
-                            <i class="fa-solid fa-arrows-rotate"></i>
-                            <span class="number">3</span>
-                            <span class="label">Devoluciones pendientes</span>
-                        </div>
-                        <div class="stat-card bg-orange">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            <span class="number">2</span>
-                            <span class="label">Equipos con daño</span>
-                        </div>
-                        <div class="stat-card bg-purple">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <span class="number">12</span>
-                            <span class="label">Equipos disponibles</span>
-                        </div>
-                    </div>
-                </div>
+<div class="card-box">
+    <div class="card-title">Resumen rápido</div>
+    <div class="grid-2">
+        <div class="stat-card bg-blue">
+            <i class="fa-solid fa-cube"></i>
+            <span class="number">8</span>
+            <span class="label">Equipos prestados</span>
+        </div>
+        <div class="stat-card bg-green">
+            <i class="fa-solid fa-arrows-rotate"></i>
+            <span class="number">3</span>
+            <span class="label">Devoluciones pendientes</span>
+        </div>
+        <div class="stat-card bg-orange">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span class="number">2</span>
+            <span class="label">Equipos con daño</span>
+        </div>
+        <div class="stat-card bg-purple">
+            <i class="fa-solid fa-circle-check"></i>
+            <span class="number">12</span>
+            <span class="label">Equipos disponibles</span>
+        </div>
+    </div>
+</div>
 
-                <div class="card-box">
-                    <div class="card-title">Accesos rápidos</div>
-                    <div class="grid-4">
-                        <button class="action-card text-blue" onclick="loadView('prestamos')">
-                            <i class="fa-solid fa-circle-plus"></i>
-                            Nuevo préstamo
-                        </button>
-                        <button class="action-card text-green" onclick="loadView('devolucion')">
-                            <i class="fa-solid fa-rotate-left"></i>
-                            Registrar devolución
-                        </button>
-                        <button class="action-card text-purple" onclick="loadView('agregar-implemento')">
-                            <i class="fa-solid fa-box"></i>
-                            Agregar implemento
-                        </button>
-                        <button class="action-card text-orange" onclick="loadView('devolucion', 'estadoDanado')">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            Reportar daño
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="card-box">
-                    <div class="card-title">Préstamos activos</div>
+<div class="card-box">
+    <div class="card-title">Accesos rápidos</div>
+    <div class="grid-4">
+        <button class="action-card text-blue" onclick="loadView('loans')">
+            <i class="fa-solid fa-circle-plus"></i>
+            Nuevo préstamo
+        </button>
+        <button class="action-card text-green" onclick="loadView('devolucion')">
+            <i class="fa-solid fa-rotate-left"></i>
+            Registrar devolución
+        </button>
+        <button class="action-card text-purple" onclick="loadView('agregar-implemento')">
+            <i class="fa-solid fa-box"></i>
+            Agregar implemento
+        </button>
+        <button class="action-card text-orange" onclick="loadView('devolucion', 'estadoDanado')">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Reportar daño
+        </button>
+    </div>
+</div>
 
-                    <div class="item-row">
-                        <i class="fa-solid fa-toolbox item-icon"></i>
-                        <div class="item-info">
-                            <div class="item-title">Taladro Eléctrico</div>
-                            <div class="item-subtitle">TAL-001</div>
-                        </div>
-                        <div class="item-due">
-                            Devolver antes de
-                            <div class="item-date due-red">25 may 2025 <span class="dot dot-red"></span></div>
-                        </div>
-                    </div>
+<div class="card-box">
+    <div class="card-title">Préstamos activos</div>
 
-                    <div class="item-row">
-                        <i class="fa-solid fa-desktop item-icon"></i>
-                        <div class="item-info">
-                            <div class="item-title">Cable HDMI</div>
-                            <div class="item-subtitle">CABLE-002</div>
-                        </div>
-                        <div class="item-due">
-                            Devolver antes de
-                            <div class="item-date due-yellow">02 jun 2025 <span class="dot dot-yellow"></span></div>
-                        </div>
-                    </div>
+    <div class="item-row" onclick="loadView('devolucion', null, 'equipoCodigo', 'TAL-001')">
+        <i class="fa-solid fa-toolbox item-icon"></i>
+        <div class="item-info">
+            <div class="item-title">Taladro Eléctrico</div>
+            <div class="item-subtitle">TAL-001</div>
+        </div>
+        <div class="item-due">
+            Devolver antes de
+            <div class="item-date due-red">25 may 2025 <span class="dot dot-red"></span></div>
+        </div>
+    </div>
 
-                    <div class="item-row">
-                        <i class="fa-solid fa-desktop item-icon"></i>
-                        <div class="item-info">
-                            <div class="item-title">Cables HDMI</div>
-                            <div class="item-subtitle">CABLE-001</div>
-                        </div>
-                        <div class="item-due">
-                            Devolver antes de
-                            <div class="item-date due-green">10 jun 2025 <span class="dot dot-green"></span></div>
-                        </div>
-                    </div>
-                </div>
-             
-                <div class="card-box">
-                    <div class="card-title">Actividad reciente</div>
+    <div class="item-row" onclick="loadView('devolucion', null, 'equipoCodigo', 'CABLE-002')">
+        <i class="fa-solid fa-desktop item-icon"></i>
+        <div class="item-info">
+            <div class="item-title">Cable HDMI</div>
+            <div class="item-subtitle">CABLE-002</div>
+        </div>
+        <div class="item-due">
+            Devolver antes de
+            <div class="item-date due-yellow">02 jun 2025 <span class="dot dot-yellow"></span></div>
+        </div>
+    </div>
 
-                    <div class="activity-row">
-                        <div class="activity-badge bg-green">
-                            <i class="fa-solid fa-arrows-rotate"></i>
-                        </div>
-                        <div>
-                            <div class="activity-text">Se registró la devolución de "Taladro eléctrico"</div>
-                            <div class="activity-time">Hace 2 horas</div>
-                        </div>
-                    </div>
+    <div class="item-row" onclick="loadView('devolucion', null, 'equipoCodigo', 'CABLE-001')">
+        <i class="fa-solid fa-desktop item-icon"></i>
+        <div class="item-info">
+            <div class="item-title">Cables HDMI</div>
+            <div class="item-subtitle">CABLE-001</div>
+        </div>
+        <div class="item-due">
+            Devolver antes de
+            <div class="item-date due-green">10 jun 2025 <span class="dot dot-green"></span></div>
+        </div>
+    </div>
+</div>
 
-                    <div class="activity-row">
-                        <div class="activity-badge bg-orange">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                        </div>
-                        <div>
-                            <div class="activity-text">Se reportó daño en "Cable HDMI"</div>
-                            <div class="activity-time">Hace 5 horas</div>
-                        </div>
-                    </div>
-                </div>
+<div class="card-box">
+    <div class="card-title">Actividad reciente</div>
+
+    <div class="activity-row">
+        <div class="activity-badge bg-green">
+            <i class="fa-solid fa-arrows-rotate"></i>
+        </div>
+        <div>
+            <div class="activity-text">Se registró la devolución de "Taladro eléctrico"</div>
+            <div class="activity-time">Hace 2 horas</div>
+        </div>
+    </div>
+
+    <div class="activity-row">
+        <div class="activity-badge bg-orange">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div>
+            <div class="activity-text">Se reportó daño en "Cable HDMI"</div>
+            <div class="activity-time">Hace 5 horas</div>
+        </div>
+    </div>
+</div>

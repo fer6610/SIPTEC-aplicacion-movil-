@@ -1,43 +1,44 @@
 <div class="header">
-                    <h1>Registro de devolución</h1>
-                    <i class="fa-solid fa-bell notification-icon"></i>
-                </div>
-                <div class="header-subtitle">Registra la devolución de un equipo</div>
+    <h1>Registro de devolución</h1>
+    <i class="fa-solid fa-bell notification-icon"></i>
+</div>
+<div class="header-subtitle">Registra la devolución de un equipo</div>
 
-                <div class="card-box">
-                    <div class="card-title">1. Seleccionar equipo</div>
-                    <div class="search-input-box">
-                        <input type="text" placeholder="Escanea el codigo del equipo">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
-                    <a class="link-blue-center">Buscar manualmente</a>
-                </div>
+<div class="card-box">
+    <div class="card-title">1. Seleccionar equipo</div>
+    <div class="search-input-box">
+        <input type="text" id="equipoCodigo" placeholder="Escanea el codigo del equipo">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <a class="link-blue-center">Buscar manualmente</a>
+</div>
 
-                <div class="card-box">
-                    <div class="card-title">2. Fecha de devolución</div>
-                    <input type="date" class="date-input-pill" id="fechaDevolucion" style="width:100%;" required>
-                </div>
+<div class="card-box">
+    <div class="card-title">2. Fecha de devolución</div>
+    <input type="date" class="date-input-pill" id="fechaDevolucion" style="width:100%;" required>
+</div>
 
-                <div class="card-box">
-                    <div class="card-title">3. Estado del equipo</div>
-                    <div class="radio-group" id="estadoEquipoGroup">
-                        <label class="radio-item">
-                            <input type="radio" name="estadoEquipo" value="DISPONIBLE" checked>
-                            <span class="radio-circle"></span>
-                            En buen estado
-                        </label>
-                        <label class="radio-item">
-                            <input type="radio" name="estadoEquipo" id="estadoDanado" value="DAÑADO">
-                            <span class="radio-circle"></span>
-                            Con daño
-                        </label>
-                    </div>
-                </div>
+<div class="card-box">
+    <div class="card-title">3. Estado del equipo</div>
+    <div class="radio-group" id="estadoEquipoGroup">
+        <label class="radio-item">
+            <input type="radio" name="estadoEquipo" id="estadoDisponible" value="DISPONIBLE" checked>
+            <span class="radio-circle"></span>
+            En buen estado
+        </label>
+        <label class="radio-item">
+            <input type="radio" name="estadoEquipo" id="estadoDanado" value="DAÑADO">
+            <span class="radio-circle"></span>
+            Con daño
+        </label>
+    </div>
+</div>
 
-                <div class="card-box">
-                    <div class="card-title">4. Observaciones (opcional)</div>
-                    <textarea class="textarea-box" placeholder="Escribe observaciones..." maxlength="150" oninput="document.getElementById('c2').innerText = this.value.length"></textarea>
-                    <div class="char-counter"><span id="c2">0</span>/150</div>
-                </div>
+<div class="card-box">
+    <div class="card-title">4. Observaciones (opcional)</div>
+    <textarea class="textarea-box" placeholder="Escribe observaciones..." maxlength="150"
+        oninput="document.getElementById('c2').innerText = this.value.length"></textarea>
+    <div class="char-counter"><span id="c2">0</span>/150</div>
+</div>
 
-                <button class="btn-action-green" onclick="alert('¡Devolución registrada con éxito!')">Registrar devolución</button>
+<button class="btn-action-green" onclick="alert('¡Devolución registrada con éxito!')">Registrar devolución</button>
