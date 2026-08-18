@@ -875,3 +875,53 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        /* ---- Toggle Herramienta / Área (Nuevo préstamo) ---- */
+        /* Mismo truco de radios ocultos + CSS que usamos en Devolución y
+           Reportes: sin necesitar JavaScript para mostrar/ocultar secciones. */
+
+        input[name="tipoSolicitud"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .tipo-toggle {
+            display: flex;
+            background-color: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 3px;
+            gap: 3px;
+            margin-bottom: 12px;
+        }
+
+        .tipo-toggle label {
+            flex: 1;
+            text-align: center;
+            padding: 9px 6px;
+            border-radius: 999px;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--ink-soft);
+            cursor: pointer;
+            transition: background-color .12s ease, color .12s ease;
+        }
+
+        #tipoHerramienta:checked~.tipo-toggle label[for="tipoHerramienta"],
+        #tipoArea:checked~.tipo-toggle label[for="tipoArea"] {
+            background-color: var(--card);
+            color: var(--blue);
+            box-shadow: var(--shadow-card);
+        }
+
+        /* Por defecto (Herramienta marcada), la sección de Área se oculta */
+        #tipoHerramienta:checked~.seccion-area {
+            display: none;
+        }
+
+        /* Si marcas Área, se oculta la sección de Herramienta */
+        #tipoArea:checked~.seccion-herramienta {
+            display: none;
+        }

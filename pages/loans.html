@@ -4,10 +4,34 @@
 </div>
 <div class="header-subtitle">Registra un nuevo préstamo de equipo.</div>
 
-<div class="card-box">
+<input type="radio" name="tipoSolicitud" id="tipoHerramienta" checked>
+<input type="radio" name="tipoSolicitud" id="tipoArea">
+
+<div class="tipo-toggle">
+    <label for="tipoHerramienta">Herramienta</label>
+    <label for="tipoArea">Área</label>
+</div>
+
+<div class="card-box seccion-herramienta">
     <div class="card-title">1. Seleccionar equipo</div>
     <div class="search-input-box">
         <input type="text" placeholder="Escanea o busca el equipo">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <a class="link-blue-center">Buscar manualmente</a>
+    <a class="link-blue-center" onclick="loadView('agregar-implemento')">¿No encuentras el equipo? Agrégalo</a>
+
+    <label style="display:block; margin-top:12px; margin-bottom:6px; font-size:10px; font-weight:700; color:var(--ink-soft); text-transform:uppercase;">
+        Cantidad a solicitar
+    </label>
+    <input type="number" class="plain-input" id="cantidadSolicitada" min="1" value="1"
+        style="border:1px solid var(--line); border-radius:var(--radius-sm); padding:10px;">
+</div>
+
+<div class="card-box seccion-area">
+    <div class="card-title">1. Seleccionar área</div>
+    <div class="search-input-box">
+        <input type="text" placeholder="Busca el área (ej. Laboratorio 1)">
         <i class="fa-solid fa-magnifying-glass"></i>
     </div>
     <a class="link-blue-center">Buscar manualmente</a>

@@ -21,7 +21,7 @@ async function loadView(viewName, checkId, fillId, fillValue) {
     if (!viewRoot) return;
 
     try {
-        // hola esto solo lo pongo por que a veces guardaba cambios y actualizaba
+        // hola esto solo lo puse por que a veces guardaba cambios y actualizaba
         // pero no se me mostraba lo que habia guardado, y vi que era como cache
         // guardado y me mostraba una version vieja, pero esto se supone que evita eso
         const respuesta = await fetch(`${viewName}.html?t=${Date.now()}`);
@@ -68,5 +68,4 @@ btnNavDevolucion.addEventListener("click", () => loadView("devolucion"));
 
 window.loadView = loadView;
 
-// Que arranque el dashboard y que sea lo que Dios quiera.
 loadView("dashboard");
