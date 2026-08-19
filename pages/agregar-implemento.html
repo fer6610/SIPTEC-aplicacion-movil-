@@ -1,39 +1,39 @@
-<div class="header">
+<div class="encabezado">
     <h1>Agregar implemento</h1>
-    <i class="fa-solid fa-bell notification-icon"></i>
+    <i class="fa-solid fa-bell icono-notificacion"></i>
 </div>
-<div class="header-subtitle">Registrar un nuevo implemento o equipo al inventario</div>
+<div class="subtitulo-encabezado">Registrar un nuevo implemento o equipo al inventario</div>
 
-<div class="card-box">
-    <div class="card-title">1. Nombre del equipo</div>
-    <input type="text" placeholder="Escribe el nombre del equipo" class="plain-input" required>
-</div>
-
-<div class="card-box">
-    <div class="card-title">2. Código de inventario</div>
-    <input type="text" placeholder="Ej. TAL-002" class="plain-input" required>
+<div class="caja-tarjeta">
+    <div class="titulo-tarjeta">1. Nombre del equipo</div>
+    <input type="text" placeholder="Escribe el nombre del equipo" class="campo-simple" required>
 </div>
 
-<div class="card-box">
-    <div class="card-title">3. Marca</div>
-    <select class="plain-input" required>
+<div class="caja-tarjeta">
+    <div class="titulo-tarjeta">2. Código de inventario</div>
+    <input type="text" placeholder="Ej. TAL-002" class="campo-simple" required>
+</div>
+
+<div class="caja-tarjeta">
+    <div class="titulo-tarjeta">3. Marca</div>
+    <select class="campo-simple" required>
         <option value="" disabled selected>Selecciona una marca</option>
     </select>
 </div>
 
-<div class="card-box">
-    <div class="card-title">4. Categoría</div>
-    <select class="plain-input" required>
+<div class="caja-tarjeta">
+    <div class="titulo-tarjeta">4. Categoría</div>
+    <select class="campo-simple" required>
         <option value="" disabled selected>Selecciona una categoría</option>
     </select>
 </div>
 
-<div class="card-box">
-    <div class="card-title">5. Descripción (opcional)</div>
-    <textarea class="textarea-box" placeholder="Escribe una descripción..." maxlength="150"
+<div class="caja-tarjeta">
+    <div class="titulo-tarjeta">5. Descripción (opcional)</div>
+    <textarea class="caja-area-texto" placeholder="Escribe una descripción..." maxlength="150"
         oninput="document.getElementById('c3').innerText = this.value.length"></textarea>
-    <div class="char-counter"><span id="c3">0</span>/150</div>
+    <div class="contador-caracteres"><span id="c3">0</span>/150</div>
 </div>
 
-<button class="btn-action-purple" onclick="alert('¡Implemento guardado exitosamente!'); loadView('dashboard');">Guardar
+<button class="boton-accion-morado" onclick="alert('¡Implemento guardado exitosamente!'); loadView('dashboard');">Guardar
     implemento</button>

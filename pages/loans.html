@@ -1,68 +1,68 @@
-<div class="header">
+<div class="encabezado">
     <h1>Nuevo préstamo</h1>
-    <i class="fa-solid fa-bell notification-icon"></i>
+    <i class="fa-solid fa-bell icono-notificacion"></i>
 </div>
-<div class="header-subtitle">Registra un nuevo préstamo de equipo.</div>
+<div class="subtitulo-encabezado">Registra un nuevo préstamo de equipo.</div>
 
 <input type="radio" name="tipoSolicitud" id="tipoHerramienta" checked>
 <input type="radio" name="tipoSolicitud" id="tipoArea">
 
-<div class="tipo-toggle">
+<div class="interruptor-tipo">
     <label for="tipoHerramienta">Herramienta</label>
     <label for="tipoArea">Área</label>
 </div>
 
-<div class="card-box seccion-herramienta">
-    <div class="card-title">1. Seleccionar equipo</div>
-    <div class="search-input-box">
+<div class="caja-tarjeta seccion-herramienta">
+    <div class="titulo-tarjeta">1. Seleccionar equipo</div>
+    <div class="caja-buscador">
         <input type="text" placeholder="Escanea o busca el equipo">
         <i class="fa-solid fa-magnifying-glass"></i>
     </div>
-    <a class="link-blue-center">Buscar manualmente</a>
-    <a class="link-blue-center" onclick="loadView('agregar-implemento')">¿No encuentras el equipo? Agrégalo</a>
+    <a class="enlace-azul-centrado">Buscar manualmente</a>
+    <a class="enlace-azul-centrado" onclick="loadView('agregar-implemento')">¿No encuentras el equipo? Agrégalo</a>
 
     <label style="display:block; margin-top:12px; margin-bottom:6px; font-size:10px; font-weight:700; color:var(--ink-soft); text-transform:uppercase;">
         Cantidad a solicitar
     </label>
-    <input type="number" class="plain-input" id="cantidadSolicitada" min="1" value="1"
+    <input type="number" class="campo-simple" id="cantidadSolicitada" min="1" value="1"
         style="border:1px solid var(--line); border-radius:var(--radius-sm); padding:10px;">
 </div>
 
-<div class="card-box seccion-area">
-    <div class="card-title">1. Seleccionar área</div>
-    <div class="search-input-box">
+<div class="caja-tarjeta seccion-area">
+    <div class="titulo-tarjeta">1. Seleccionar área</div>
+    <div class="caja-buscador">
         <input type="text" placeholder="Busca el área (ej. Laboratorio 1)">
         <i class="fa-solid fa-magnifying-glass"></i>
     </div>
-    <a class="link-blue-center">Buscar manualmente</a>
+    <a class="enlace-azul-centrado">Buscar manualmente</a>
 </div>
 
-<div class="card-box">
-    <div class="card-title">2. Empleado que recibe</div>
-    <div class="search-input-box">
+<div class="caja-tarjeta">
+    <div class="titulo-tarjeta">2. Empleado que recibe</div>
+    <div class="caja-buscador">
         <input type="text" placeholder="Buscar empleado">
         <i class="fa-solid fa-magnifying-glass"></i>
     </div>
-    <a class="link-blue-center">Buscar manualmente</a>
+    <a class="enlace-azul-centrado">Buscar manualmente</a>
 </div>
 
-<div class="card-box">
-    <div class="card-title">3. Fecha del préstamo</div>
-    <div class="date-range-flex">
-        <input type="date" class="date-input-pill" id="fechaInicio" required>
+<div class="caja-tarjeta">
+    <div class="titulo-tarjeta">3. Fecha del préstamo</div>
+    <div class="rango-fechas">
+        <input type="date" class="campo-fecha" id="fechaInicio" required>
         <span>a</span>
-        <input type="date" class="date-input-pill" id="fechaEsperada" required>
+        <input type="date" class="campo-fecha" id="fechaEsperada" required>
     </div>
     <small style="display:block; margin-top:6px; font-size:9px; color:var(--ink-soft);">
         La fecha de devolución esperada no puede ser mayor a 1 mes desde el inicio.
     </small>
 </div>
 
-<div class="card-box">
-    <div class="card-title">4. Observaciones (opcional)</div>
-    <textarea class="textarea-box" placeholder="Escribe observaciones..." maxlength="150"
+<div class="caja-tarjeta">
+    <div class="titulo-tarjeta">4. Observaciones (opcional)</div>
+    <textarea class="caja-area-texto" placeholder="Escribe observaciones..." maxlength="150"
         oninput="document.getElementById('c1').innerText = this.value.length"></textarea>
-    <div class="char-counter"><span id="c1">0</span>/150</div>
+    <div class="contador-caracteres"><span id="c1">0</span>/150</div>
 </div>
 
-<button class="btn-action-navy" onclick="alert('¡Préstamo registrado con éxito!')">Registrar préstamos</button>
+<button class="boton-accion-azulmarino" onclick="alert('¡Préstamo registrado con éxito!')">Registrar préstamos</button>

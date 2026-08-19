@@ -1,44 +1,44 @@
-<div class="header">
+<div class="encabezado">
     <h1>Registro de devolución</h1>
-    <i class="fa-solid fa-bell notification-icon"></i>
+    <i class="fa-solid fa-bell icono-notificacion"></i>
 </div>
-<div class="header-subtitle">Registra la devolución de un equipo</div>
+<div class="subtitulo-encabezado">Registra la devolución de un equipo</div>
 
-<div class="card-box">
-    <div class="card-title">1. Seleccionar equipo</div>
-    <div class="search-input-box">
+<div class="caja-tarjeta">
+    <div class="titulo-tarjeta">1. Seleccionar equipo</div>
+    <div class="caja-buscador">
         <input type="text" id="equipoCodigo" placeholder="Escanea el codigo del equipo">
         <i class="fa-solid fa-magnifying-glass"></i>
     </div>
-    <a class="link-blue-center">Buscar manualmente</a>
+    <a class="enlace-azul-centrado">Buscar manualmente</a>
 </div>
 
-<div class="card-box">
-    <div class="card-title">2. Fecha de devolución</div>
-    <input type="date" class="date-input-pill" id="fechaDevolucion" style="width:100%;" required>
+<div class="caja-tarjeta">
+    <div class="titulo-tarjeta">2. Fecha de devolución</div>
+    <input type="date" class="campo-fecha" id="fechaDevolucion" style="width:100%;" required>
 </div>
 
-<div class="card-box">
-    <div class="card-title">3. Estado del equipo</div>
-    <div class="radio-group" id="estadoEquipoGroup">
-        <label class="radio-item">
+<div class="caja-tarjeta">
+    <div class="titulo-tarjeta">3. Estado del equipo</div>
+    <div class="grupo-radio" id="estadoEquipoGroup">
+        <label class="item-radio">
             <input type="radio" name="estadoEquipo" id="estadoDisponible" value="DISPONIBLE" checked>
-            <span class="radio-circle"></span>
+            <span class="circulo-radio"></span>
             En buen estado
         </label>
-        <label class="radio-item">
+        <label class="item-radio">
             <input type="radio" name="estadoEquipo" id="estadoDanado" value="DAÑADO">
-            <span class="radio-circle"></span>
+            <span class="circulo-radio"></span>
             Con daño
         </label>
     </div>
 </div>
 
-<div class="card-box">
-    <div class="card-title">4. Observaciones (opcional)</div>
-    <textarea class="textarea-box" placeholder="Escribe observaciones..." maxlength="150"
+<div class="caja-tarjeta">
+    <div class="titulo-tarjeta">4. Observaciones (opcional)</div>
+    <textarea class="caja-area-texto" placeholder="Escribe observaciones..." maxlength="150"
         oninput="document.getElementById('c2').innerText = this.value.length"></textarea>
-    <div class="char-counter"><span id="c2">0</span>/150</div>
+    <div class="contador-caracteres"><span id="c2">0</span>/150</div>
 </div>
 
-<button class="btn-action-green" onclick="alert('¡Devolución registrada con éxito!')">Registrar devolución</button>
+<button class="boton-accion-verde" onclick="alert('¡Devolución registrada con éxito!')">Registrar devolución</button>

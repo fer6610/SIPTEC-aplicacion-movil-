@@ -11,7 +11,7 @@ const btnNavReportes = document.getElementById("btnNavReportes");
 const btnNavDevolucion = document.getElementById("btnNavDevolucion");
 
 // Aqui meto los botones en un array para no repetir codigo 
-// cuando toque quitarles o ponerles el "active".
+// cuando toque quitarles o ponerles el "activo".
 const botonesNav = [btnNavInicio, btnNavPrestamos, btnNavReportes, btnNavDevolucion];
 
 // La función que inyecta la vista en #viewRoot.
@@ -53,12 +53,12 @@ async function loadView(viewName, checkId, fillId, fillValue) {
 
 // esto solo es para pintar el botón que toca en el nav.
 function marcarBotonActivo(viewName) {
-    botonesNav.forEach((boton) => boton.classList.remove("active"));
+    botonesNav.forEach((boton) => boton.classList.remove("activo"));
 
-    if (viewName === "dashboard") btnNavInicio.classList.add("active");
-    if (viewName === "loans") btnNavPrestamos.classList.add("active");
-    if (viewName === "reports") btnNavReportes.classList.add("active");
-    if (viewName === "devolucion") btnNavDevolucion.classList.add("active");
+    if (viewName === "dashboard") btnNavInicio.classList.add("activo");
+    if (viewName === "loans") btnNavPrestamos.classList.add("activo");
+    if (viewName === "reports") btnNavReportes.classList.add("activo");
+    if (viewName === "devolucion") btnNavDevolucion.classList.add("activo");
 }
 
 btnNavInicio.addEventListener("click", () => loadView("dashboard"));

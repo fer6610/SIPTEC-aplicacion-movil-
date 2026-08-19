@@ -1,13 +1,13 @@
-<div class="header">
+<div class="encabezado">
     <h1>Generar reportes</h1>
-    <i class="fa-solid fa-bell notification-icon"></i>
+    <i class="fa-solid fa-bell icono-notificacion"></i>
 </div>
-<div class="header-subtitle">Genera y consulta reportes del sistema.</div>
+<div class="subtitulo-encabezado">Genera y consulta reportes del sistema.</div>
 
-<div class="card-title" style="margin-bottom:6px;">1. Tipo de reporte</div>
+<div class="titulo-tarjeta" style="margin-bottom:6px;">1. Tipo de reporte</div>
 
-<input type="radio" name="tipoReporte" id="repPrestamosActivos" class="report-type-radio" checked>
-<label class="report-select-card" for="repPrestamosActivos">
+<input type="radio" name="tipoReporte" id="repPrestamosActivos" class="radio-tipo-reporte" checked>
+<label class="tarjeta-seleccion-reporte" for="repPrestamosActivos">
     <div>
         <div class="title">Préstamos activos</div>
         <div class="desc">Equipos actualmente prestados</div>
@@ -15,8 +15,8 @@
     <i class="fa-solid fa-arrow-right"></i>
 </label>
 
-<input type="radio" name="tipoReporte" id="repHistorial" class="report-type-radio">
-<label class="report-select-card" for="repHistorial">
+<input type="radio" name="tipoReporte" id="repHistorial" class="radio-tipo-reporte">
+<label class="tarjeta-seleccion-reporte" for="repHistorial">
     <div>
         <div class="title">Historial de préstamos</div>
         <div class="desc">Todos los préstamos realizados</div>
@@ -24,8 +24,8 @@
     <i class="fa-solid fa-arrow-right"></i>
 </label>
 
-<input type="radio" name="tipoReporte" id="repDevoluciones" class="report-type-radio">
-<label class="report-select-card" for="repDevoluciones">
+<input type="radio" name="tipoReporte" id="repDevoluciones" class="radio-tipo-reporte">
+<label class="tarjeta-seleccion-reporte" for="repDevoluciones">
     <div>
         <div class="title">Devoluciones</div>
         <div class="desc">Historial de devoluciones</div>
@@ -33,8 +33,8 @@
     <i class="fa-solid fa-arrow-right"></i>
 </label>
 
-<input type="radio" name="tipoReporte" id="repDanados" class="report-type-radio">
-<label class="report-select-card" for="repDanados" style="margin-bottom:14px;">
+<input type="radio" name="tipoReporte" id="repDanados" class="radio-tipo-reporte">
+<label class="tarjeta-seleccion-reporte" for="repDanados" style="margin-bottom:14px;">
     <div>
         <div class="title">Equipos con daño</div>
         <div class="desc">Equipos reportados con daño</div>
@@ -43,13 +43,13 @@
 </label>
 
 <div style="margin-bottom: 14px;">
-    <div class="card-title" style="margin-bottom:6px;">2. Rango de fechas</div>
-    <div class="date-range-flex">
-        <input type="date" class="date-input-pill" id="reporteFechaInicio" required>
+    <div class="titulo-tarjeta" style="margin-bottom:6px;">2. Rango de fechas</div>
+    <div class="rango-fechas">
+        <input type="date" class="campo-fecha" id="reporteFechaInicio" required>
         <span style="font-size:10px;">a</span>
-        <input type="date" class="date-input-pill" id="reporteFechaFin" required>
+        <input type="date" class="campo-fecha" id="reporteFechaFin" required>
     </div>
 </div>
 
-<button class="btn-action-slate" onclick="alert('Generando reporte...')">Generar reporte</button>
-<button class="btn-action-outline">Ver reportes generados</button>
+<button class="boton-accion-gris" onclick="alert('Generando reporte...')">Generar reporte</button>
+<button class="boton-accion-contorno">Ver reportes generados</button>
