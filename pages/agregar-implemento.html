@@ -35,5 +35,5 @@
     <div class="contador-caracteres"><span id="c3">0</span>/150</div>
 </div>
 
-<button class="boton-accion-morado" onclick="alert('¡Implemento guardado exitosamente!'); loadView('dashboard');">Guardar
+<button class="boton-accion-morado" onclick="Swal.fire({icon: 'success', title: '¡Implemento guardado!', text: 'Se agregó correctamente al inventario.', confirmButtonColor: '#8a4fd6'}).then(() => loadView('dashboard'));">Guardar
     implemento</button>
