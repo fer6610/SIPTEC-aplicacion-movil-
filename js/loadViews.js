@@ -1,29 +1,17 @@
-// Hola
-// Esta cosa solo es para cargar las vistas en loadViews.html
-// solo carga el codigo de las otras paginas y por eso las otras paginas 
-// no tienen encabezados, solo los puros divs, asi solo se inyecta en 
-// cargar vistas usando fetch.
-
 const viewRoot = document.getElementById("viewRoot");
 const btnNavInicio = document.getElementById("btnNavInicio");
 const btnNavPrestamos = document.getElementById("btnNavPrestamos");
 const btnNavReportes = document.getElementById("btnNavReportes");
 const btnNavDevolucion = document.getElementById("btnNavDevolucion");
 
-// Aqui meto los botones en un array para no repetir codigo 
-// cuando toque quitarles o ponerles el "activo".
+
 const botonesNav = [btnNavInicio, btnNavPrestamos, btnNavReportes, btnNavDevolucion];
 
-// La función que inyecta la vista en #viewRoot.
-// Recibe el nombre del archivo y, si andás con ganas, te deja marcado 
-// un radio o te prellena un input de un solo para ahorrar fatiga.
+
 async function loadView(viewName, checkId, fillId, fillValue) {
     if (!viewRoot) return;
 
     try {
-        // hola esto solo lo puse por que a veces guardaba cambios y actualizaba
-        // pero no se me mostraba lo que habia guardado, y vi que era como cache
-        // guardado y me mostraba una version vieja, pero esto se supone que evita eso
         const respuesta = await fetch(`${viewName}.html?t=${Date.now()}`);
 
         if (!respuesta.ok) {

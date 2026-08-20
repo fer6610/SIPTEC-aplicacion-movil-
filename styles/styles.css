@@ -199,7 +199,7 @@
             filter: brightness(1.05);
         }
 
-        .boton-iniciar-sesion:activo {
+        .boton-iniciar-sesion:active {
             transform: scale(.98);
         }
 
@@ -395,7 +395,7 @@
             border-bottom: none;
         }
 
-        .fila-elemento:activo {
+        .fila-elemento:active {
             opacity: .6;
         }
 
@@ -505,7 +505,7 @@
             transition: transform .1s ease, filter .15s ease;
         }
 
-        .tarjeta-accion:activo {
+        .tarjeta-accion:active {
             transform: scale(.96);
         }
 
@@ -701,10 +701,10 @@
             transition: transform .1s ease, filter .15s ease;
         }
 
-        .boton-accion-azulmarino:activo,
-        .boton-accion-verde:activo,
-        .boton-accion-morado:activo,
-        .boton-accion-gris:activo {
+        .boton-accion-azulmarino:active,
+        .boton-accion-verde:active,
+        .boton-accion-morado:active,
+        .boton-accion-gris:active {
             transform: scale(.98);
         }
 
@@ -742,7 +742,7 @@
             transition: background .15s ease;
         }
 
-        .boton-accion-contorno:activo {
+        .boton-accion-contorno:active {
             background: var(--paper);
         }
 
@@ -767,7 +767,7 @@
             transition: transform .1s ease, border-color .12s ease, background-color .12s ease;
         }
 
-        .tarjeta-seleccion-reporte:activo {
+        .tarjeta-seleccion-reporte:active {
             transform: scale(.98);
         }
 
