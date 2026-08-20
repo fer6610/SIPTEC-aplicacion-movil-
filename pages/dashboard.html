@@ -9,22 +9,22 @@
     <div class="cuadricula-2">
         <div class="tarjeta-estadistica fondo-azul">
             <i class="fa-solid fa-cube"></i>
-            <span class="number">8</span>
+            <span class="number" id="statEquiposPrestados">0</span>
             <span class="label">Equipos prestados</span>
         </div>
         <div class="tarjeta-estadistica fondo-verde">
             <i class="fa-solid fa-arrows-rotate"></i>
-            <span class="number">3</span>
+            <span class="number" id="statDevolucionesPendientes">0</span>
             <span class="label">Devoluciones pendientes</span>
         </div>
         <div class="tarjeta-estadistica fondo-naranja">
             <i class="fa-solid fa-triangle-exclamation"></i>
-            <span class="number">2</span>
+            <span class="number" id="statEquiposDanados">0</span>
             <span class="label">Equipos con daño</span>
         </div>
         <div class="tarjeta-estadistica fondo-morado">
             <i class="fa-solid fa-circle-check"></i>
-            <span class="number">12</span>
+            <span class="number" id="statEquiposDisponibles">0</span>
             <span class="label">Equipos disponibles</span>
         </div>
     </div>
@@ -55,63 +55,5 @@
 <div class="caja-tarjeta">
     <div class="titulo-tarjeta">Préstamos activos</div>
 
-    <div class="fila-elemento" onclick="loadView('devolucion', null, 'equipoCodigo', 'TAL-001')">
-        <i class="fa-solid fa-toolbox icono-elemento"></i>
-        <div class="info-elemento">
-            <div class="titulo-elemento">Taladro Eléctrico</div>
-            <div class="subtitulo-elemento">TAL-001</div>
-        </div>
-        <div class="vencimiento-elemento">
-            Devolver antes de
-            <div class="fecha-elemento due-red">25 may 2025 <span class="punto punto-rojo"></span></div>
-        </div>
-    </div>
-
-    <div class="fila-elemento" onclick="loadView('devolucion', null, 'equipoCodigo', 'CABLE-002')">
-        <i class="fa-solid fa-desktop icono-elemento"></i>
-        <div class="info-elemento">
-            <div class="titulo-elemento">Cable HDMI</div>
-            <div class="subtitulo-elemento">CABLE-002</div>
-        </div>
-        <div class="vencimiento-elemento">
-            Devolver antes de
-            <div class="fecha-elemento due-yellow">02 jun 2025 <span class="punto punto-amarillo"></span></div>
-        </div>
-    </div>
-
-    <div class="fila-elemento" onclick="loadView('devolucion', null, 'equipoCodigo', 'CABLE-001')">
-        <i class="fa-solid fa-desktop icono-elemento"></i>
-        <div class="info-elemento">
-            <div class="titulo-elemento">Cables HDMI</div>
-            <div class="subtitulo-elemento">CABLE-001</div>
-        </div>
-        <div class="vencimiento-elemento">
-            Devolver antes de
-            <div class="fecha-elemento due-green">10 jun 2025 <span class="punto punto-verde"></span></div>
-        </div>
-    </div>
-</div>
-
-<div class="caja-tarjeta">
-    <div class="titulo-tarjeta">Actividad reciente</div>
-
-    <div class="fila-actividad">
-        <div class="insignia-actividad fondo-verde">
-            <i class="fa-solid fa-arrows-rotate"></i>
-        </div>
-        <div>
-            <div class="texto-actividad">Se registró la devolución de "Taladro eléctrico"</div>
-            <div class="tiempo-actividad">Hace 2 horas</div>
-        </div>
-    </div>
-
-    <div class="fila-actividad">
-        <div class="insignia-actividad fondo-naranja">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-        </div>
-        <div>
-            <div class="texto-actividad">Se reportó daño en "Cable HDMI"</div>
-            <div class="tiempo-actividad">Hace 5 horas</div>
-        </div>
-    </div>
+    <div id="listaPrestamosActivos"></div>
 </div>

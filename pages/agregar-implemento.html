@@ -6,34 +6,31 @@
 
 <div class="caja-tarjeta">
     <div class="titulo-tarjeta">1. Nombre del equipo</div>
-    <input type="text" placeholder="Escribe el nombre del equipo" class="campo-simple" required>
+    <input type="text" id="nombreEquipo" placeholder="Escribe el nombre del equipo" class="campo-simple" required>
 </div>
 
 <div class="caja-tarjeta">
     <div class="titulo-tarjeta">2. Código de inventario</div>
-    <input type="text" placeholder="Ej. TAL-002" class="campo-simple" required>
+    <input type="text" id="codigoInventario" placeholder="Ej. TAL-002" class="campo-simple" required>
 </div>
 
 <div class="caja-tarjeta">
     <div class="titulo-tarjeta">3. Marca</div>
-    <select class="campo-simple" required>
-        <option value="" disabled selected>Selecciona una marca</option>
-    </select>
+    <input type="text" id="marcaTexto" list="listaMarcas" class="campo-simple" placeholder="Escribe o elige una marca" required>
+    <datalist id="listaMarcas"></datalist>
 </div>
 
 <div class="caja-tarjeta">
     <div class="titulo-tarjeta">4. Categoría</div>
-    <select class="campo-simple" required>
-        <option value="" disabled selected>Selecciona una categoría</option>
-    </select>
+    <input type="text" id="categoriaTexto" list="listaCategorias" class="campo-simple" placeholder="Escribe o elige una categoría" required>
+    <datalist id="listaCategorias"></datalist>
 </div>
 
 <div class="caja-tarjeta">
     <div class="titulo-tarjeta">5. Descripción (opcional)</div>
-    <textarea class="caja-area-texto" placeholder="Escribe una descripción..." maxlength="150"
+    <textarea class="caja-area-texto" id="descripcionEquipo" placeholder="Escribe una descripción..." maxlength="150"
         oninput="document.getElementById('c3').innerText = this.value.length"></textarea>
     <div class="contador-caracteres"><span id="c3">0</span>/150</div>
 </div>
 
-<button class="boton-accion-morado" onclick="Swal.fire({icon: 'success', title: '¡Implemento guardado!', text: 'Se agregó correctamente al inventario.', confirmButtonColor: '#8a4fd6'}).then(() => loadView('dashboard'));">Guardar
-    implemento</button>
+<button class="boton-accion-morado" id="btnGuardarImplemento">Guardar implemento</button>

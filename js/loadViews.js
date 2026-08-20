@@ -1,4 +1,8 @@
 import { initPrestamoController } from "./controllers/prestamoController.js";
+import { initDashboardController } from "./controllers/dashboardController.js";
+import { initReportesController } from "./controllers/reportesController.js";
+import { initDevolucionController } from "./controllers/devolucionController.js";
+import { initImplementoController } from "./controllers/implementoController.js";
 
 const viewRoot = document.getElementById("viewRoot");
 const btnNavInicio = document.getElementById("btnNavInicio");
@@ -35,8 +39,16 @@ async function loadView(viewName, checkId, fillId, fillValue) {
 
         marcarBotonActivo(viewName);
 
-        if (viewName === "loans") {
+        if (viewName === "dashboard") {
+            initDashboardController();
+        } else if (viewName === "loans") {
             initPrestamoController();
+        } else if (viewName === "reports") {
+            initReportesController();
+        } else if (viewName === "devolucion") {
+            initDevolucionController();
+        } else if (viewName === "agregar-implemento") {
+            initImplementoController();
         }
 
     } catch (error) {

@@ -1,17 +1,21 @@
 import { agregarHerramienta } from "../services/herramientaService.js";
-import { obtenerMarcas } from "../services/marcaService.js";
-import { obtenerCategorias } from "../services/categoriaService.js";
+import { obtenerMarcas, agregarMarca } from "../services/marcaService.js";
+import { obtenerCategorias, agregarCategoria } from "../services/categoriaService.js";
 import { obtenerEstadosHerramienta } from "../services/estadoHerramientaService.js";
 import { agregarDetalleHerramienta } from "../services/detalleHerramientaService.js";
 import { agregarHerramientaCategoria } from "../services/herramientaCategoriaService.js";
 
 let listaEstadosHerramienta = [];
+let listaMarcas = [];
+let listaCategorias = [];
 
 export function initImplementoController() {
     const nombreEquipo = document.getElementById("nombreEquipo");
     const codigoInventario = document.getElementById("codigoInventario");
-    const selectMarca = document.getElementById("selectMarca");
-    const selectCategoria = document.getElementById("selectCategoria");
+    const marcaTexto = document.getElementById("marcaTexto");
+    const categoriaTexto = document.getElementById("categoriaTexto");
+    const listaMarcasDatalist = document.getElementById("listaMarcas");
+    const listaCategoriasDatalist = document.getElementById("listaCategorias");
     const descripcionEquipo = document.getElementById("descripcionEquipo");
     const btnGuardarImplemento = document.getElementById("btnGuardarImplemento");
 
@@ -26,13 +30,33 @@ export function initImplementoController() {
         if (!codigoInventario.value.trim() || !patronCodigo.test(codigoInventario.value.trim())) {
             return { valido: false, mensaje: "El código de inventario solo admite letras, números y guiones." };
         }
-        if (!selectMarca.value) {
-            return { valido: false, mensaje: "Selecciona una marca." };
+        if (!marcaTexto.value.trim()) {
+            return { valido: false, mensaje: "Escribe una marca." };
         }
-        if (!selectCategoria.value) {
-            return { valido: false, mensaje: "Selecciona una categoría." };
+        if (!categoriaTexto.value.trim()) {
+            return { valido: false, mensaje: "Escribe una categoría." };
         }
         return { valido: true };
+    }
+
+    async function obtenerOCrearMarca(nombre) {
+        const nombreNormalizado = nombre.trim();
+        const existente = listaMarcas.find((item) => item.nombreMarca.toLowerCase() === nombreNormalizado.toLowerCase());
+        if (existente) return existente.id;
+
+        const creada = await agregarMarca({ nombreMarca: nombreNormalizado });
+        listaMarcas.push(creada);
+        return creada.id;
+    }
+
+    async function obtenerOCrearCategoria(nombre) {
+        const nombreNormalizado = nombre.trim();
+        const existente = listaCategorias.find((item) => item.nombreCategoria.toLowerCase() === nombreNormalizado.toLowerCase());
+        if (existente) return existente.id;
+
+        const creada = await agregarCategoria({ nombreCategoria: nombreNormalizado });
+        listaCategorias.push(creada);
+        return creada.id;
     }
 
     async function guardarImplemento() {
@@ -49,6 +73,11 @@ export function initImplementoController() {
         }
 
         try {
+            const [idMarca, idCategoria] = await Promise.all([
+                obtenerOCrearMarca(marcaTexto.value),
+                obtenerOCrearCategoria(categoriaTexto.value),
+            ]);
+
             const nuevaHerramienta = await agregarHerramienta({
                 nombreHerramienta: nombreEquipo.value.trim(),
                 descripcionHerramienta: descripcionEquipo.value.trim(),
@@ -57,13 +86,13 @@ export function initImplementoController() {
 
             await agregarDetalleHerramienta({
                 idHerramienta: nuevaHerramienta.idHerramienta,
-                idMarca: Number(selectMarca.value),
+                idMarca: idMarca,
                 idEstadoHerramienta: estadoDisponible.id,
                 codInv: codigoInventario.value.trim(),
             });
 
             await agregarHerramientaCategoria({
-                idCategoria: Number(selectCategoria.value),
+                idCategoria: idCategoria,
                 idHerramienta: nuevaHerramienta.idHerramienta,
             });
 
@@ -101,19 +130,19 @@ export function initImplementoController() {
             ]);
 
             listaEstadosHerramienta = estadosHerramienta;
+            listaMarcas = marcas;
+            listaCategorias = categorias;
 
             marcas.forEach((marca) => {
                 const opcion = document.createElement("option");
-                opcion.value = marca.id;
-                opcion.textContent = marca.nombreMarca;
-                selectMarca.appendChild(opcion);
+                opcion.value = marca.nombreMarca;
+                listaMarcasDatalist.appendChild(opcion);
             });
 
             categorias.forEach((categoria) => {
                 const opcion = document.createElement("option");
-                opcion.value = categoria.id;
-                opcion.textContent = categoria.nombreCategoria;
-                selectCategoria.appendChild(opcion);
+                opcion.value = categoria.nombreCategoria;
+                listaCategoriasDatalist.appendChild(opcion);
             });
 
         } catch (error) {
