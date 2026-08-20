@@ -1,3 +1,5 @@
+import { initPrestamoController } from "./controllers/prestamoController.js";
+
 const viewRoot = document.getElementById("viewRoot");
 const btnNavInicio = document.getElementById("btnNavInicio");
 const btnNavPrestamos = document.getElementById("btnNavPrestamos");
@@ -32,6 +34,10 @@ async function loadView(viewName, checkId, fillId, fillValue) {
         }
 
         marcarBotonActivo(viewName);
+
+        if (viewName === "loans") {
+            initPrestamoController();
+        }
 
     } catch (error) {
         console.error("Lo sentimos, hubo un error al cargar la pagina: " + error);

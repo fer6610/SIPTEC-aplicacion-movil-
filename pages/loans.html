@@ -15,10 +15,11 @@
 <div class="caja-tarjeta seccion-herramienta">
     <div class="titulo-tarjeta">1. Seleccionar equipo</div>
     <div class="caja-buscador">
-        <input type="text" placeholder="Escanea o busca el equipo">
+        <input type="text" id="buscarHerramienta" placeholder="Escanea o busca el equipo">
         <i class="fa-solid fa-magnifying-glass"></i>
     </div>
-    <a class="enlace-azul-centrado">Buscar manualmente</a>
+    <input type="hidden" id="idHerramientaSeleccionada">
+    <small id="avisoHerramienta" style="display:block; margin-top:4px; font-size:9px; color:var(--ink-soft);"></small>
     <a class="enlace-azul-centrado" onclick="loadView('agregar-implemento')">¿No encuentras el equipo? Agrégalo</a>
 
     <label style="display:block; margin-top:12px; margin-bottom:6px; font-size:10px; font-weight:700; color:var(--ink-soft); text-transform:uppercase;">
@@ -31,10 +32,11 @@
 <div class="caja-tarjeta seccion-area">
     <div class="titulo-tarjeta">1. Seleccionar área</div>
     <div class="caja-buscador">
-        <input type="text" placeholder="Busca el área (ej. Laboratorio 1)">
+        <input type="text" id="buscarArea" placeholder="Busca el área (ej. Laboratorio 1)">
         <i class="fa-solid fa-magnifying-glass"></i>
     </div>
-    <a class="enlace-azul-centrado">Buscar manualmente</a>
+    <input type="hidden" id="idAreaSeleccionada">
+    <small id="avisoArea" style="display:block; margin-top:4px; font-size:9px; color:var(--ink-soft);"></small>
 </div>
 
 <div class="caja-tarjeta">
@@ -56,4 +58,4 @@
     <div class="contador-caracteres"><span id="c1">0</span>/150</div>
 </div>
 
-<button class="boton-accion-azulmarino" onclick="Swal.fire({icon: 'success', title: '¡Préstamo registrado!', confirmButtonColor: '#001f3d'});">Registrar préstamos</button>
+<button class="boton-accion-azulmarino" id="btnRegistrarPrestamo">Registrar préstamos</button>
