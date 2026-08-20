@@ -45,7 +45,6 @@ export async function obtenerAreasPorPrestamo(idPrestamo) {
         }
 
         const resultado = await response.json();
-
         return resultado.data;
     }
     catch (error) {
