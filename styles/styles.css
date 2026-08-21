@@ -48,7 +48,7 @@
             height: 100dvh;
             border-radius: 0;
             box-shadow: none;
-            overflow: oculto;
+            overflow: hidden;
             position: relative;
             background-color: var(--card);
             display: flex;
@@ -241,20 +241,87 @@
             letter-spacing: -.01em;
         }
 
-        .icono-notificacion {
-            font-size: 18px;
-            color: var(--ink-soft);
-            cursor: pointer;
-            margin-top: 5px;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background: var(--card);
+        .boton-perfil-topbar {
             display: flex;
             align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-card);
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 4px;
+            padding: 0;
             flex: 0 0 auto;
+        }
+
+        .boton-perfil-topbar:active {
+            opacity: .7;
+        }
+
+        .nombre-perfil-topbar {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--ink-soft);
+            white-space: nowrap;
+            max-width: 90px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .boton-perfil-topbar i {
+            font-size: 30px;
+            color: var(--ink-soft);
+        }
+
+        .overlay-modal.overlay-lateral {
+            align-items: stretch;
+            justify-content: flex-end;
+            padding: 0;
+        }
+
+        .panel-lateral-perfil {
+            width: min(78%, 300px);
+            height: 100%;
+            background-color: var(--card);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, .25);
+            padding: 20px;
+            overflow-y: auto;
+            animation: deslizar-panel-perfil .18s ease;
+        }
+
+        @keyframes deslizar-panel-perfil {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .tarjeta-perfil {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 0 22px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .tarjeta-perfil i {
+            font-size: 40px;
+            color: var(--ink-soft);
+        }
+
+        .nombre-perfil-grande {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .correo-perfil {
+            font-size: 10px;
+            color: var(--ink-soft);
+            margin-top: 2px;
         }
 
         .subtitulo-encabezado {
@@ -486,6 +553,52 @@
 
         .punto-verde {
             background-color: #22c55e;
+        }
+
+        .tarjeta-solicitud {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .tarjeta-solicitud:last-child {
+            border-bottom: none;
+        }
+
+        .acciones-solicitud {
+            display: flex;
+            gap: 8px;
+            flex: 0 0 auto;
+        }
+
+        .boton-aprobar,
+        .boton-rechazar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 13px;
+            color: #ffffff;
+        }
+
+        .boton-aprobar {
+            background-color: var(--green);
+        }
+
+        .boton-rechazar {
+            background-color: var(--red);
+        }
+
+        .boton-aprobar:active,
+        .boton-rechazar:active {
+            transform: scale(.92);
         }
 
         /* Botones de Accesos Rápidos */
@@ -746,21 +859,20 @@
             background: var(--paper);
         }
 
-        .radio-tipo-reporte {
-            position: absolute;
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
         .tarjeta-seleccion-reporte {
+            display: flex;
+            box-sizing: border-box;
+            width: 100%;
+            appearance: none;
+            -webkit-appearance: none;
             border: 1px solid var(--line);
             border-radius: var(--radius-md);
             padding: 12px 14px;
-            margin-bottom: 8px;
-            display: flex;
+            margin: 0 0 8px;
             justify-content: space-between;
             align-items: center;
+            text-align: left;
+            font: inherit;
             cursor: pointer;
             background-color: var(--card);
             box-shadow: var(--shadow-card);
@@ -769,15 +881,6 @@
 
         .tarjeta-seleccion-reporte:active {
             transform: scale(.98);
-        }
-
-        .radio-tipo-reporte:checked+.tarjeta-seleccion-reporte {
-            border-color: var(--blue);
-            background-color: rgba(25, 141, 230, .06);
-        }
-
-        .radio-tipo-reporte:checked+.tarjeta-seleccion-reporte .title {
-            color: var(--blue);
         }
 
         .tarjeta-seleccion-reporte .title {
@@ -823,6 +926,143 @@
             margin-bottom: 8px;
             outline: none;
             background: var(--card);
+        }
+
+        /* ---------- Detalle de reporte: encabezado con flecha de regreso ---------- */
+
+        .grupo-titulo-volver {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .boton-volver {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            background-color: var(--card);
+            color: var(--ink);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex: 0 0 auto;
+            box-shadow: var(--shadow-card);
+            transition: transform .1s ease;
+        }
+
+        .boton-volver:active {
+            transform: scale(.92);
+        }
+
+        /* ---------- Modal "Generar reporte" ---------- */
+
+        .overlay-modal {
+            position: absolute;
+            inset: 0;
+            background: rgba(2, 22, 43, .6);
+            backdrop-filter: blur(2px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            padding: 20px;
+        }
+
+        .tarjeta-modal {
+            width: 100%;
+            max-width: 340px;
+            max-height: 85vh;
+            overflow-y: auto;
+            background-color: var(--card);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+            animation: aparecer-modal .16s ease;
+        }
+
+        @keyframes aparecer-modal {
+            from {
+                opacity: 0;
+                transform: scale(.94);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .encabezado-modal {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4px;
+        }
+
+        .encabezado-modal h2 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--ink);
+        }
+
+        .subtitulo-modal {
+            font-size: 11px;
+            color: var(--ink-soft);
+            margin-bottom: 16px;
+        }
+
+        .cerrar-modal {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--paper);
+            color: var(--ink-soft);
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex: 0 0 auto;
+            transition: background-color .12s ease;
+        }
+
+        .cerrar-modal:active {
+            background-color: var(--line);
+        }
+
+        .etiqueta-campo {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--ink);
+            margin: 14px 0 6px;
+        }
+
+        .etiqueta-campo:first-of-type {
+            margin-top: 0;
+        }
+
+        .campo-tipo-reporte {
+            appearance: none;
+            -webkit-appearance: none;
+            box-sizing: border-box;
+            margin-bottom: 0;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b7684' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 32px;
+        }
+
+        .resultados-modal-reporte {
+            margin-top: 16px;
+            padding-top: 10px;
+            max-height: 220px;
+            overflow-y: auto;
+            border-top: 1px solid var(--line);
         }
 
         .campo-simple {

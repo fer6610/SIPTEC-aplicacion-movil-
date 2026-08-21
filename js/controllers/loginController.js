@@ -1,4 +1,4 @@
-import { obtenerUsuarios } from "../services/usuarioService.js";
+import { iniciarSesion } from "../services/authService.js";
 
 export function initLoginController() {
     const formLogin = document.getElementById("login-form");
@@ -10,23 +10,27 @@ export function initLoginController() {
     formLogin.addEventListener("submit", async (evento) => {
         evento.preventDefault();
 
-        if (!email.value.trim() || !password.value.trim()) {
+        const correo = email.value.trim();
+        const clave = password.value;
+
+        if (!correo || !clave) {
             Swal.fire({ icon: "warning", title: "Datos incompletos", text: "Ingresa tu correo y tu contraseña." });
             return;
         }
 
         try {
-            const usuarios = await obtenerUsuarios();
-            const correoBuscado = email.value.trim().toLowerCase();
-            const usuarioEncontrado = usuarios.find((usuario) => usuario.correoUsuario.toLowerCase() === correoBuscado);
+            const usuario = await iniciarSesion(correo, clave);
 
-            if (!usuarioEncontrado) {
-                Swal.fire({ icon: "error", title: "Credenciales inválidas", text: "No se encontró una cuenta con ese correo." });
+            if (!usuario) {
+                Swal.fire({ icon: "error", title: "Credenciales inválidas", text: "Correo o contraseña incorrectos." });
                 return;
             }
 
-            localStorage.setItem("siptec-usuario-id", usuarioEncontrado.id);
-            localStorage.setItem("siptec-usuario-nombre", usuarioEncontrado.nombreUsuario);
+            localStorage.setItem("siptec-usuario-id", usuario.id);
+            localStorage.setItem("siptec-usuario-nombre", usuario.nombreUsuario);
+            localStorage.setItem("siptec-usuario-apellido", usuario.apellidoUsuario);
+            localStorage.setItem("siptec-usuario-correo", usuario.correoUsuario);
+            localStorage.setItem("siptec-role", usuario.nombreRol);
 
             window.location.href = "pages/loadViews.html";
 
