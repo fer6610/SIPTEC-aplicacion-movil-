@@ -23,6 +23,18 @@ export function initImplementoController() {
 
     const patronCodigo = /^[A-Za-z0-9-]+$/;
 
+    function limpiarFormulario() {
+        nombreEquipo.value = "";
+        codigoInventario.value = "";
+        marcaTexto.value = "";
+        categoriaTexto.value = "";
+        if (descripcionEquipo) {
+            descripcionEquipo.value = "";
+            const contador = document.getElementById("c3");
+            if (contador) contador.innerText = "0";
+        }
+    }
+
     function validarFormulario() {
         if (!nombreEquipo.value.trim()) {
             return { valido: false, mensaje: "Escribe el nombre del equipo." };
@@ -101,7 +113,8 @@ export function initImplementoController() {
                 title: "¡Implemento guardado!",
                 text: "Se agregó correctamente al inventario.",
                 confirmButtonColor: "#8a4fd6",
-            }).then(() => loadView("dashboard"));
+            });
+            limpiarFormulario();
 
         } catch (error) {
             console.error(error);

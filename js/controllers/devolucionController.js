@@ -36,6 +36,18 @@ export function initDevolucionController() {
     fechaDevolucion.max = hoy;
     fechaDevolucion.value = hoy;
 
+    function limpiarFormulario() {
+        detalleSeleccionado = null;
+        equipoCodigo.value = "";
+        fechaDevolucion.value = hoy;
+        estadoDisponible.checked = true;
+        if (observaciones) {
+            observaciones.value = "";
+            const contador = document.getElementById("c2");
+            if (contador) contador.innerText = "0";
+        }
+    }
+
     function seleccionarPorCodigo(codigo) {
         const encontrado = resolverPorCodigo(codigo);
         if (encontrado) {
@@ -123,8 +135,8 @@ export function initDevolucionController() {
                 });
             }
 
-            Swal.fire({ icon: "success", title: "¡Devolución registrada!", confirmButtonColor: "#28a745" })
-                .then(() => loadView("dashboard"));
+            Swal.fire({ icon: "success", title: "¡Devolución registrada!", confirmButtonColor: "#28a745" });
+            limpiarFormulario();
 
         } catch (error) {
             console.error(error);

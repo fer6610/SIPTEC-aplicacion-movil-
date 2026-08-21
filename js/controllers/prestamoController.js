@@ -56,6 +56,24 @@ export function initPrestamoController() {
     const hoy = new Date().toISOString().split("T")[0];
     fechaInicio.min = hoy;
 
+    function limpiarFormulario() {
+        tipoHerramienta.checked = true;
+        buscarHerramienta.value = "";
+        idHerramientaSeleccionada.value = "";
+        avisoHerramienta.textContent = "";
+        cantidadSolicitada.value = 1;
+        buscarArea.value = "";
+        idAreaSeleccionada.value = "";
+        avisoArea.textContent = "";
+        fechaInicio.value = "";
+        fechaEsperada.value = "";
+        if (observaciones) {
+            observaciones.value = "";
+            const contador = document.getElementById("c1");
+            if (contador) contador.innerText = "0";
+        }
+    }
+
     function validarFormularioPrestamo() {
         if (!fechaInicio.value || !fechaEsperada.value) {
             return { valido: false, mensaje: "Selecciona la fecha de inicio y la esperada." };
@@ -123,8 +141,8 @@ export function initPrestamoController() {
                 });
             }
 
-            Swal.fire({ icon: "success", title: "¡Préstamo registrado!", confirmButtonColor: "#001f3d" })
-                .then(() => loadView("dashboard"));
+            Swal.fire({ icon: "success", title: "¡Préstamo registrado!", confirmButtonColor: "#001f3d" });
+            limpiarFormulario();
 
         } catch (error) {
             console.error(error);
