@@ -119,7 +119,6 @@ function initPanelPerfil() {
     }
 }
 
-// esto solo es para pintar el botón que toca en el nav.
 function marcarBotonActivo(viewName) {
     botonesNav.forEach((boton) => boton.classList.remove("activo"));
 
