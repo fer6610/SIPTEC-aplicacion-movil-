@@ -5,6 +5,8 @@ import { obtenerDetallePrestamoHerramientas } from "../services/detallePrestamoH
 import { obtenerAreas } from "../services/areaService.js";
 import { obtenerDetallePrestamoAreas } from "../services/detallePrestamoAreaService.js";
 import { obtenerUsuarios } from "../services/usuarioService.js";
+import { obtenerDetallesHerramienta, actualizarDetalleHerramienta } from "../services/detalleHerramientaService.js";
+import { obtenerEstadosHerramienta } from "../services/estadoHerramientaService.js";
 
 function formatearFecha(fechaISO) {
     if (!fechaISO) return "-";
@@ -19,6 +21,9 @@ export async function initAprobarPrestamosController() {
     let prestamos = [];
     let estados = [];
     let pendientes = [];
+    let detallesPrestamoHerramienta = [];
+    let detallesFisicos = [];
+    let estadosHerramienta = [];
 
     function construirFila(prestamo, herramientas, detallesHerramienta, areas, detallesArea, usuarios) {
         const usuario = usuarios.find((u) => u.id === prestamo.usuario);
@@ -77,6 +82,22 @@ export async function initAprobarPrestamosController() {
                 estado: estadoNuevo.id,
             });
 
+            if (nombreEstadoNuevo === "APROBADO") {
+                const detallePrestamo = detallesPrestamoHerramienta.find((d) => d.prestamo === idPrestamo);
+                if (detallePrestamo) {
+                    const detalleFisico = detallesFisicos.find((d) => d.idHerramienta === detallePrestamo.herramienta);
+                    const idEnPrestamo = (estadosHerramienta.find((e) => e.nombreEstadoHerramienta === "EN PRESTAMO") || {}).id;
+                    if (detalleFisico && idEnPrestamo) {
+                        await actualizarDetalleHerramienta(detalleFisico.idDetalle, {
+                            idHerramienta: detalleFisico.idHerramienta,
+                            idMarca: detalleFisico.idMarca,
+                            idEstadoHerramienta: idEnPrestamo,
+                            codInv: detalleFisico.codInv,
+                        });
+                    }
+                }
+            }
+
             Swal.fire({
                 icon: "success",
                 title: nombreEstadoNuevo === "APROBADO" ? "¡Préstamo aprobado!" : "Préstamo rechazado",
@@ -105,7 +126,7 @@ export async function initAprobarPrestamosController() {
     });
 
     try {
-        const [prestamosCargados, estadosCargados, herramientas, detallesHerramienta, areas, detallesArea, usuarios] = await Promise.all([
+        const [prestamosCargados, estadosCargados, herramientas, detallesHerramienta, areas, detallesArea, usuarios, detallesFisicosCargados, estadosHerramientaCargados] = await Promise.all([
             obtenerPrestamos(),
             obtenerEstadosPrestamo(),
             obtenerHerramientas(),
@@ -113,10 +134,15 @@ export async function initAprobarPrestamosController() {
             obtenerAreas().catch(() => []),
             obtenerDetallePrestamoAreas().catch(() => []),
             obtenerUsuarios(),
+            obtenerDetallesHerramienta(),
+            obtenerEstadosHerramienta(),
         ]);
 
         prestamos = prestamosCargados;
         estados = estadosCargados;
+        detallesPrestamoHerramienta = detallesHerramienta;
+        detallesFisicos = detallesFisicosCargados;
+        estadosHerramienta = estadosHerramientaCargados;
 
         const estadoPendiente = estados.find((e) => e.nombreEstado === "PENDIENTE");
         pendientes = prestamos
